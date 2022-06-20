@@ -1,18 +1,36 @@
-import React from 'react';
-import thumb from '../../assets/images/traffic-thumb.png';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+// import thumb from '../../assets/images/traffic-thumb.png';
 
 function TrafficHomeOne() {
+    const [home, Sethome] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/homes?populate=*')
+            .then((res) => {
+                Sethome(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
+    function imageurl(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.image2.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
     return (
         <section className="appie-traffic-area pt-140 pb-180">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-7">
                         <div className="appie-traffic-title">
-                            <span>Traffic</span>
-                            <h3 className="title">Stage reporting with 50k queries.</h3>
+                            {/* <span>Traffic</span> */}
+                            <h3 className="title"> {home ? home.map((x) => <span>{x.attributes.heading1}</span>) : 'hgfhgf'}</h3>
                             <p>
-                                He nicked it tickety boo harry the cras bargy chap mush spiffing
-                                spend a penny the full monty burke butty.
+                            {home ? home.map((x) => <span>{x.attributes.para2}</span>) : 'hgfhgf'}
                             </p>
                         </div>
                         <div className="row">
@@ -21,8 +39,8 @@ function TrafficHomeOne() {
                                     <div className="icon">
                                         <i className="fal fa-check" />
                                     </div>
-                                    <h5 className="title">Carefully designed</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <h5 className="title">{home ? home.map((x) => <span>{x.attributes.subt1}</span>) : 'hgfhgf'}</h5>
+                                    {/* <p>Mucker plastered bugger all mate morish are.</p> */}
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6">
@@ -30,8 +48,8 @@ function TrafficHomeOne() {
                                     <div className="icon">
                                         <i className="fal fa-check" />
                                     </div>
-                                    <h5 className="title">Choose a App</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <h5 className="title">{home ? home.map((x) => <span>{x.attributes.subt2}</span>) : 'hgfhgf'}</h5>
+                                    {/* <p>Mucker plastered bugger all mate morish are.</p> */}
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6">
@@ -39,8 +57,8 @@ function TrafficHomeOne() {
                                     <div className="icon">
                                         <i className="fal fa-check" />
                                     </div>
-                                    <h5 className="title">Seamless Sync</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <h5 className="title">{home ? home.map((x) => <span>{x.attributes.subt3}</span>) : 'hgfhgf'}</h5>
+                                    {/* <p>Mucker plastered bugger all mate morish are.</p> */}
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6">
@@ -48,8 +66,8 @@ function TrafficHomeOne() {
                                     <div className="icon">
                                         <i className="fal fa-check" />
                                     </div>
-                                    <h5 className="title">User Interactive</h5>
-                                    <p>Mucker plastered bugger all mate morish are.</p>
+                                    <h5 className="title">{home ? home.map((x) => <span>{x.attributes.subt4}</span>) : 'hgfhgf'}</h5>
+                                    {/* <p>Mucker plastered bugger all mate morish are.</p> */}
                                 </div>
                             </div>
                             <div className="col-lg-12">
@@ -64,13 +82,21 @@ function TrafficHomeOne() {
                 </div>
             </div>
             <div className="traffic-thumb ">
-                <img
-                    className="wow animated fadeInRight"
-                    data-wow-duration="2000ms"
-                    data-wow-delay="200ms"
-                    src={thumb}
-                    alt=""
-                />
+            {home
+                                        ? home.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
             </div>
         </section>
     );

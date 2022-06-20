@@ -1,8 +1,28 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
+// import logo from '../../assets/images/logo.png';
 
 function FooterHomeOne({ className }) {
+    const [logo, Setlogo] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/logos?populate=*')
+            .then((res) => {
+                Setlogo(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
+    function imageurl(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.logo.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
     return (
         <>
             <section className={`appie-footer-area ${className || ''}`}>
@@ -12,12 +32,26 @@ function FooterHomeOne({ className }) {
                             <div className="footer-about-widget">
                                 <div className="logo">
                                     <a href="#">
-                                        <img src={logo} alt="" />
+                                    {logo
+                                        ? logo.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
                                     </a>
                                 </div>
-                                <p>
+                                {/* <p>
                                     Appie WordPress is theme is the last theme you will ever have.
-                                </p>
+                                </p> */}
                                 <a href="#">
                                     Read More <i className="fal fa-arrow-right" />
                                 </a>

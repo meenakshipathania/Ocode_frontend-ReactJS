@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function Navigation() {
+    const [text, Settext] = useState([]);
+   useEffect(() => {
+      const request = axios.CancelToken.source();
+         axios.get('http://localhost:1337/api/logos')
+            .then((res) => {
+               Settext(res.data.data);
+            })
+            .catch((error) => {
+               console.log(error);
+            });
+      return () => request.cancel();
+   }, []);
     return (
         <>
             <ul>
                 <li>
-                    <a href="#">
-                        Home <i className="fal fa-angle-down" />
-                    </a>
+                    <Link to="/">{text ? text.map((x) => <span>{x.attributes.nav1}</span>) : 'hgfhgf'}</Link>
+                        {/* Home <i className="fal fa-angle-down" /> */}
                     <ul className="sub-menu">
                         <li>
                             <Link to="/">Home 1</Link>
@@ -37,36 +49,34 @@ function Navigation() {
                     </ul>
                 </li>
                 <li>
-                    <Link to="/service">Service</Link>
+                    <Link to="/service">{text ? text.map((x) => <span>{x.attributes.nav2}</span>) : 'hgfhgf'}</Link>
                 </li>
                 <li>
-                    <a href="#">
-                        Pages <i className="fal fa-angle-down" />
-                    </a>
-                    <ul className="sub-menu">
+                    <Link to="/career">{text ? text.map((x) => <span>{x.attributes.nav3}</span>) : 'hgfhgf'}</Link>
+                        {/* Career <i className="fal fa-angle-down" /> */}
+                    {/* <ul className="sub-menu">
                         <li>
                             <Link to="/about-us">About</Link>
                         </li>
                         <li>
                             <Link to="/error">Error</Link>
                         </li>
-                    </ul>
+                    </ul> */}
                 </li>
                 <li>
-                    <a href="#">
-                        News <i className="fal fa-angle-down" />
-                    </a>
-                    <ul className="sub-menu">
+                <Link to="/about-us">{text ? text.map((x) => <span>{x.attributes.nav4}</span>) : 'hgfhgf'}</Link>
+                        {/* About Us <i className="fal fa-angle-down" /> */}
+                    {/* <ul className="sub-menu">
                         <li>
                             <Link to="/news">News Page</Link>
                         </li>
                         <li>
                             <Link to="/news/single-news">Single News</Link>
                         </li>
-                    </ul>
+                    </ul> */}
                 </li>
                 <li>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/contact">{text ? text.map((x) => <span>{x.attributes.nav5}</span>) : 'hgfhgf'}</Link>
                 </li>
             </ul>
         </>

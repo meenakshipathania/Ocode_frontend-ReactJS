@@ -1,16 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-import thumb from '../../assets/images/features-thumb-1.png';
+// import thumb from '../../assets/images/features-thumb-1.png';
 import shapeSix from '../../assets/images/shape/shape-6.png';
 import shapeSeven from '../../assets/images/shape/shape-7.png';
 import shapeEight from '../../assets/images/shape/shape-8.png';
 
 function FeaturesHomeOne({ className }) {
+    const [home, Sethome] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/homes?populate=*')
+            .then((res) => {
+                Sethome(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
     const [tab, setTab] = useState('setting');
     const handleClick = (e, value) => {
         e.preventDefault();
         setTab(value);
     };
+    function imageurl(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.image1.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
+    function imageurl1(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.image3.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
+    function imageurl2(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.image4.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
+    function imageurl3(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.image5.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
     return (
         <section className={`appie-features-area pt-100 ${className}`} id="features">
             <div className="container">
@@ -91,7 +125,21 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="200ms"
                                         >
-                                            <img src={thumb} alt="" />
+                                           {home
+                                        ? home.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
@@ -100,16 +148,15 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="600ms"
                                         >
-                                            <span>Custom Reacyions</span>
+                                            {/* <span>Custom Reacyions</span> */}
                                             <h3 className="title">
-                                                Let the <br /> Conversation flow
+                                            {home ? home.map((x) => <span>{x.attributes.heading}</span>) : 'hgfhgf'}
                                             </h3>
                                             <p>
-                                                Car boot absolutely bladdered posh burke the
-                                                wireless mush some dodg.
+                                            {home ? home.map((x) => <span>{x.attributes.para1}</span>) : 'hgfhgf'}
                                             </p>
                                             <Link className="main-btn" to="/about-us">
-                                                Learn More
+                                            {home ? home.map((x) => <span>{x.attributes.button}</span>) : 'hgfhgf'}
                                             </Link>
                                         </div>
                                     </div>
@@ -128,7 +175,21 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="200ms"
                                         >
-                                            <img src={thumb} alt="" />
+                                             {home
+                                        ? home.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl1(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
@@ -137,13 +198,12 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="600ms"
                                         >
-                                            <span>Custom Reacyions</span>
+                                            {/* <span>Custom  vvvvReacyions</span> */}
                                             <h3 className="title">
-                                                Let the <br /> Conversation flow
+                                            {home ? home.map((x) => <span>{x.attributes.heading2}</span>) : 'hgfhgf'}
                                             </h3>
                                             <p>
-                                                Car boot absolutely bladdered posh burke the
-                                                wireless mush some dodg.
+                                            {home ? home.map((x) => <span>{x.attributes.para3}</span>) : 'hgfhgf'}
                                             </p>
                                             <a className="main-btn" href="#">
                                                 Learn More
@@ -165,7 +225,21 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="200ms"
                                         >
-                                            <img src={thumb} alt="" />
+                                            {home
+                                        ? home.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl2(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
@@ -174,13 +248,12 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="600ms"
                                         >
-                                            <span>Custom Reacyions</span>
+                                            {/* <span>Custom Reacyions</span> */}
                                             <h3 className="title">
-                                                Let the <br /> Conversation flow
+                                            {home ? home.map((x) => <span>{x.attributes.heading3}</span>) : 'hgfhgf'}
                                             </h3>
                                             <p>
-                                                Car boot absolutely bladdered posh burke the
-                                                wireless mush some dodg.
+                                            {home ? home.map((x) => <span>{x.attributes.para4}</span>) : 'hgfhgf'}
                                             </p>
                                             <a className="main-btn" href="#">
                                                 Learn More
@@ -202,7 +275,21 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="200ms"
                                         >
-                                            <img src={thumb} alt="" />
+                                             {home
+                                        ? home.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl3(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
                                         </div>
                                     </div>
                                     <div className="col-lg-6">
@@ -211,13 +298,15 @@ function FeaturesHomeOne({ className }) {
                                             data-wow-duration="2000ms"
                                             data-wow-delay="600ms"
                                         >
-                                            <span>Custom Reacyions</span>
+                                            {/* <span>Custom Reacyions</span> */}
                                             <h3 className="title">
-                                                Let the <br /> Conversation flow
+                                            {home ? home.map((x) => <span>{x.attributes.heading4}</span>) : 'hgfhgf'}
+                                            </h3>
+                                            <h3>
+                                            {home ? home.map((x) => <span>{x.attributes.sutext}</span>) : 'hgfhgf'}
                                             </h3>
                                             <p>
-                                                Car boot absolutely bladdered posh burke the
-                                                wireless mush some dodg.
+                                            {home ? home.map((x) => <span>{x.attributes.para5}</span>) : 'hgfhgf'}
                                             </p>
                                             <a className="main-btn" href="#">
                                                 Learn More
