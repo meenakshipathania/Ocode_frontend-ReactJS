@@ -1,9 +1,29 @@
-import React, { useEffect } from 'react';
-import logo from '../../assets/images/logo.png';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+// import logo from '../../assets/images/logo.png';
 import StickyMenu from '../../lib/StickyMenu';
 import Navigation from '../Navigation';
 
 function HeaderAbout({ action }) {
+    const [logo, Setlogo] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/logos?populate=*')
+            .then((res) => {
+                Setlogo(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
+    function imageurl(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.logo.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
     useEffect(() => {
         StickyMenu();
     });
@@ -16,7 +36,21 @@ function HeaderAbout({ action }) {
                             <div className="col-lg-2 col-md-4 col-sm-5 col-6 order-1 order-sm-1">
                                 <div className="appie-logo-box">
                                     <a href="/">
-                                        <img src={logo} alt="" />
+                                    {logo
+                                        ? logo.map((x) => (
+                                              <a href="/">
+                                                  <img
+                                                      className="loimg"
+                                                      src={
+                                                          x.attributes
+                                                              ? imageurl(x.attributes)
+                                                              : 'hgghtyu'
+                                                      }
+                                                      alt=""
+                                                  />
+                                              </a>
+                                          ))
+                                        : 'hgfhgf'}
                                     </a>
                                 </div>
                             </div>
@@ -28,10 +62,10 @@ function HeaderAbout({ action }) {
                             <div className="col-lg-4  col-md-7 col-sm-6 col-6 order-2 order-sm-3">
                                 <div className="appie-btn-box text-right">
                                     <a className="login-btn" href="#">
-                                        <i className="fal fa-user"></i> Login
+                                        <i className="fal fa-user"></i>  {logo ? logo.map((x) => <span>{x.attributes.login}</span>) : 'hgfhgf'}
                                     </a>
                                     <a className="main-btn ml-30" href="#">
-                                        Get Started
+                                    {logo ? logo.map((x) => <span>{x.attributes.getstart}</span>) : 'hgfhgf'}
                                     </a>
                                     <div
                                         onClick={(e) => action(e)}

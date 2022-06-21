@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function ProjectHomeOne() {
+    const [logo, Setlogo] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/portfolios?populate=*')
+            .then((res) => {
+                Setlogo(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
     return (
         <>
             <section className="appie-project-area pb-100">
@@ -16,9 +30,9 @@ function ProjectHomeOne() {
                                     <div className="col-lg-6">
                                         <div className="appie-project-content">
                                             <h3 className="title">
-                                                Start your project with appie.
+                                            {logo ? logo.map((x) => <span>{x.attributes.pro}</span>) : 'hgfhgf'}
                                             </h3>
-                                            <p>We will email you only about this product.</p>
+                                            <p>{logo ? logo.map((x) => <span>{x.attributes.ject}</span>) : 'hgfhgf'}</p>
                                             <form action="#">
                                                 <div className="input-box mt-30">
                                                     <input type="text" placeholder="Your email" />

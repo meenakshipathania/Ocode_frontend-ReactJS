@@ -1668,6 +1668,30 @@ p {
   left: 195px;
   z-index: -1;
 }
+.mainport{
+  display: flex;
+  justify-content: space-between;
+}
+.port1, .port2, .port3{
+  width: 30%;
+  line-height: 0;
+  position: relative;
+  text-align: center;
+  background-color: aliceblue;
+}
+.subport1{
+  padding: 42px 0 21px;
+}
+.span1{
+  display: inline-block;
+}
+.subimg{
+  max-width: 100%;
+  height: auto;
+}
+.subpara1{
+  padding-bottom: 7px;
+}
 .appie-hero-area.appie-hero-8-area .appie-hero-content-8 .appie-title {
   font-size: 70px;
   line-height: 80px;
@@ -2660,11 +2684,37 @@ p {
   margin-bottom: 18px;
 }
 .service-details-content .content span {
-  font-size: 20px;
+  /* font-size: 20px;
   line-height: 30px;
   color: #0e1133;
-  padding-top: 34px;
+  padding-top: 34px; */
   padding-bottom: 26px;
+}
+.lastport1 span {
+  padding: 0 0 49px;
+  color: #00d3f3;
+  font-size: 14px;
+}
+.port1:hover {
+  color: white;
+  background-color: #03a4d4;
+  -webkit-transition: height .3s cubic-bezier(.25,.46,.45,.94);
+  -moz-transition: height .3s cubic-bezier(.25,.46,.45,.94);
+  transition: height .3s cubic-bezier(.25,.46,.45,.94);
+}
+.port2:hover {
+  color: white;
+  background-color: #03a4d4;
+  -webkit-transition: height .3s cubic-bezier(.25,.46,.45,.94);
+  -moz-transition: height .3s cubic-bezier(.25,.46,.45,.94);
+  transition: height .3s cubic-bezier(.25,.46,.45,.94);
+}
+.port3:hover {
+  color: white;
+  background-color: #03a4d4;
+  -webkit-transition: height .3s cubic-bezier(.25,.46,.45,.94);
+    -moz-transition: height .3s cubic-bezier(.25,.46,.45,.94);
+    transition: height .3s cubic-bezier(.25,.46,.45,.94);
 }
 
 .appie-services-8-area .service-thumb {
@@ -6243,6 +6293,8 @@ blockquote cite {
 
 .appie-about-top-title-area {
   padding-top: 227px;
+  background-image: url(../images/portfolio.jpg);
+  padding-bottom: 50px;
 }
 
 .appie-about-top-title {
@@ -6315,13 +6367,13 @@ blockquote cite {
 }
 
 .appie-about-page-area {
-  padding-top: 462px;
+  padding-top: 75px;
   padding-bottom: 100px;
-  background-image: url(../images/about-page-bg.jpg);
+  background-color:white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 345px;
+  /* margin-top: 345px; */
 }
 @media (max-width: 767px) {
   .appie-about-page-area {
@@ -6336,16 +6388,16 @@ blockquote cite {
 .appie-about-page-content .title {
   font-size: 36px;
   font-weight: 700;
-  color: #fff;
+  color: black;
 }
 .appie-about-page-content p {
-  color: #fff;
+  color: black;
   padding-top: 15px;
   opacity: 0.7;
 }
 .appie-about-page-content a {
-  color: #fff;
-  border: 2px solid #fff;
+  color: black;
+  border: 2px solid black;
   border-radius: 10px;
   line-height: 40px;
   padding: 0 30px;
@@ -6357,7 +6409,7 @@ blockquote cite {
   background: #fff;
   color: #2b70fa;
 }
-.appie-about-page-content::before {
+/* .appie-about-page-content::before {
   position: absolute;
   content: "";
   left: 0;
@@ -6368,7 +6420,7 @@ blockquote cite {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
+} */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .appie-about-page-content::before {
     width: 94vw;

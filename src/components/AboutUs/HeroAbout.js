@@ -15,7 +15,7 @@ function HeroAbout() {
                     </div>
                 </div>
             </div>
-            <section className="appie-about-page-area">
+            {/* <section className="appie-about-page-area">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
@@ -38,7 +38,7 @@ function HeroAbout() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 }
