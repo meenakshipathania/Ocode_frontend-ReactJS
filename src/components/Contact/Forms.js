@@ -1,6 +1,56 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
 
 function Forms() {
+    const [logo, Setlogo] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/logos?populate=*')
+            .then((res) => {
+                Setlogo(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [country, setCountry] = useState('');
+    const [message, setMessage] = useState('');
+
+    const form = useRef();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const contact = { firstname, lastname, email, phone, country, message };
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhone('');
+        setCountry('');
+        setMessage('');
+
+        // important//////////////
+        // emailjs.sendForm('service_6o3palp', 'template_58uclcx', form.current, 'pYfziu1Gd30wQSISj')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
+        // e.target.reset()
+
+        fetch('http://localhost:1337/api/contact-datas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ data: contact }),
+        }).then(() => {
+            console.log('new contact added');
+        });
+    };
     return (
         <>
             <section className="contact-section">
@@ -14,26 +64,23 @@ function Forms() {
                                     <h5>Headquaters</h5>
                                     <p>
                                         <i className="fal fa-home"></i>
-                                        744 New York Ave, Brooklyn, Kings,
-                                        <br /> New York 10224
+                                        {logo ? logo.map((x) => <span>{x.attributes.address}</span>) : 'hgfhgf'}
                                     </p>
                                 </div>
                                 <div className="single-info">
                                     <h5>Phone</h5>
                                     <p>
                                         <i className="fal fa-phone"></i>
-                                        (+642) 245 356 432
+                                        {logo ? logo.map((x) => <span>{x.attributes.phone}</span>) : 'hgfhgf'}
                                         <br />
-                                        (+420) 336 476 328
+                                        {logo ? logo.map((x) => <span>{x.attributes.phone1}</span>) : 'hgfhgf'}
                                     </p>
                                 </div>
                                 <div className="single-info">
                                     <h5>Support</h5>
                                     <p>
                                         <i className="fal fa-envelope"></i>
-                                        bisy@support.com
-                                        <br />
-                                        help@education.com
+                                        {logo ? logo.map((x) => <span>{x.attributes.email}</span>) : 'hgfhgf'}
                                     </p>
                                 </div>
                                 <div className="ab-social">
@@ -57,34 +104,34 @@ function Forms() {
                             <div className="contact-form">
                                 <h4>Let’s Connect</h4>
                                 <p>Integer at lorem eget diam facilisis lacinia ac id massa.</p>
-                                <form action="#" method="post" className="row">
+                                <form ref={form} onSubmit={handleSubmit} action="#" method="post" className="row">
                                     <div className="col-md-6">
-                                        <input type="text" name="f-name" placeholder="First Name" />
+                                        <input type="text" name="firstname" placeholder="First Name" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
                                     </div>
                                     <div className="col-md-6">
-                                        <input type="text" name="l-name" placeholder="Last Name" />
+                                        <input type="text" name="lastname" placeholder="Last Name" value={lastname} onChange={(e) => setLastName(e.target.value)} />
                                     </div>
                                     <div className="col-md-6">
                                         <input
                                             type="email"
                                             name="email"
-                                            placeholder="Email Address"
+                                            placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)}
                                         />
                                     </div>
                                     <div className="col-md-6">
                                         <input
-                                            type="number"
+                                            type="tel" pattern="[0-9]{10}"
                                             name="phone"
-                                            placeholder="Phone Number"
+                                            placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)}
                                         />
                                     </div>
                                     <div className="col-md-12">
-                                        <input type="text" name="suject" placeholder="Subject" />
+                                        <input type="text" name="country" placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} />
                                     </div>
                                     <div className="col-md-12">
                                         <textarea
                                             name="message"
-                                            placeholder="How can we help?"
+                                            placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)}
                                         ></textarea>
                                     </div>
                                     <div className="col-md-6">
@@ -106,10 +153,11 @@ function Forms() {
             </section>
 
             <div className="bisylms-map">
-                <iframe
+                {/* <iframe
                     title="map"
                     src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;coord=39.966528,-75.158284&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(My%20Business%20Name)&amp;ie=UTF8&amp;t=p&amp;z=16&amp;iwloc=B&amp;output=embed"
-                ></iframe>
+                ></iframe>  */}
+                <iframe title= "map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13721.69704904163!2d76.69005438083641!3d30.70647115633895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390feef71f2458b9%3A0xa661fca742c10e06!2sBrowsewire%20Consulting%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1655892333729!5m2!1sen!2sin"></iframe>
             </div>
         </>
     );

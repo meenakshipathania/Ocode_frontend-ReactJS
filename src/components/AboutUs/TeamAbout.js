@@ -20,6 +20,19 @@ function TeamAbout() {
             });
         return () => request.cancel();
     }, []);
+    const [home1, Sethome1] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/abouts?populate=*')
+            .then((res) => {
+                Sethome1(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
     function imageurl(atttribute) {
         const baseurl = 'http://localhost:1337';
         const dataurl = atttribute.image.data[0].attributes.url;
@@ -32,14 +45,14 @@ function TeamAbout() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="appie-section-title text-center">
-                                <h3 className="appie-title">Meet our Team Members</h3>
-                                <p>Different layouts and styles for team sections.</p>
+                                <h3 className="appie-title">{home1 ? home1.map((x) => <span>{x.attributes.heading1}</span>) : 'hgfhgf'}</h3>
+                                <p>{home1 ? home1.map((x) => <span>{x.attributes.para1}</span>) : 'hgfhgf'}</p>
                             </div>
                         </div>
                     </div>
                     <div className="row">
                     {home
-                            ? home.map((x) => (
+                            ? home.slice(0,8).map((x) => (
                         <div className="col-lg-3 col-md-6">
                             <div
                                 className="appie-team-item appie-team-item-about mt-30 wow animated fadeInUp"
@@ -179,13 +192,13 @@ function TeamAbout() {
                             </div>
                         </div> */}
                         
-                        <div className="col-lg-12">
+                        {/* <div className="col-lg-12">
                             <div className="team-btn text-center mt-50">
                                 <a className="main-btn" href="#">
                                     View all Members <i className="fal fa-arrow-right"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

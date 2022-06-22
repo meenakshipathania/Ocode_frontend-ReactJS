@@ -9,7 +9,7 @@ function HeroNews({ title, breadcrumb }) {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="appie-page-title-item">
-                                <h3 className="title">{title}</h3>
+                                <h3 className="title tit">{title}</h3>
                                 <nav aria-label="breadcrumb">
                                     <ol className="breadcrumb">
                                         {breadcrumb.map((value) => (

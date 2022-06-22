@@ -49,7 +49,7 @@ function Navigation() {
                     </ul>
                 </li>
                 <li>
-                    <Link to="/service">{text ? text.map((x) => <span>{x.attributes.nav2}</span>) : 'hgfhgf'}</Link>
+                    <Link to="/portfolio">{text ? text.map((x) => <span>{x.attributes.nav2}</span>) : 'hgfhgf'}</Link>
                 </li>
                 <li>
                     <Link to="/career">{text ? text.map((x) => <span>{x.attributes.nav3}</span>) : 'hgfhgf'}</Link>

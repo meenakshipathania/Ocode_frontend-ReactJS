@@ -62,7 +62,7 @@ function HeaderAbout({ action }) {
                             <div className="col-lg-4  col-md-7 col-sm-6 col-6 order-2 order-sm-3">
                                 <div className="appie-btn-box text-right">
                                     <a className="login-btn" href="#">
-                                        <i className="fal fa-user"></i>  {logo ? logo.map((x) => <span>{x.attributes.login}</span>) : 'hgfhgf'}
+                                        <i className="fal fa-user"></i> {logo ? logo.map((x) => <span>{x.attributes.login}</span>) : 'hgfhgf'}
                                     </a>
                                     <a className="main-btn ml-30" href="#">
                                     {logo ? logo.map((x) => <span>{x.attributes.getstart}</span>) : 'hgfhgf'}

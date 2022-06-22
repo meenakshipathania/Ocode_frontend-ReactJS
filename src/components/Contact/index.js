@@ -3,7 +3,7 @@ import useToggle from '../../Hooks/useToggle';
 import BackToTop from '../BackToTop';
 import FooterHomeOne from '../HomeOne/FooterHomeOne';
 import Drawer from '../Mobile/Drawer';
-import HeaderNews from '../News/HeaderNews';
+import HeaderAbout from '../AboutUs/HeaderAbout';
 import HeroNews from '../News/HeroNews';
 import Forms from './Forms';
 
@@ -12,12 +12,12 @@ function Contact() {
     return (
         <>
             <Drawer drawer={drawer} action={drawerAction.toggle} />
-            <HeaderNews drawer={drawer} action={drawerAction.toggle} />
+            <HeaderAbout drawer={drawer} action={drawerAction.toggle} />
             <HeroNews
-                title="Blogs"
+                title="Contact Us"
                 breadcrumb={[
-                    { link: '/', title: 'home' },
-                    { link: '/news', title: 'Blogs' },
+                    // { link: '/', title: 'Home' },
+                    // { link: '/contact', title: 'Contact' },
                 ]}
             />
             <Forms />

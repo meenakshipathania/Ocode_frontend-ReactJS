@@ -174,6 +174,7 @@ p {
 .appie-section-title .appie-title {
   font-size: 44px;
   line-height: 54px;
+  text-align: center;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .appie-section-title .appie-title {
@@ -203,6 +204,7 @@ p {
   font-size: 18px;
   line-height: 28px;
   margin-top: 11px;
+  text-align: center;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .appie-section-title p {
@@ -2223,7 +2225,7 @@ p {
 
 .appie-page-title-area {
   height: 450px;
-  background-image: url(../images/page-bg.jpg);
+  background-image: url(../images/contact.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2299,9 +2301,12 @@ p {
   padding-bottom: 14px;
 }
 .appie-page-title-item .title {
-  color: #fff;
   font-size: 44px;
   font-weight: 700;
+  color: #fff;
+}
+h3.tit {
+  text-align: right;
 }
 @media (max-width: 767px) {
   .appie-page-title-item .title {
@@ -6296,10 +6301,15 @@ blockquote cite {
   background-image: url(../images/portfolio.jpg);
   padding-bottom: 50px;
 }
-
-.appie-about-top-title {
-  padding-right: 65px;
+.appie-about-top-title-area1 {
+  padding-top: 227px;
+  background-image: url(../images/career-2.jpg);
+  padding-bottom: 175px;
 }
+
+/* .appie-about-top-title {
+  padding-right: 65px;
+} */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .appie-about-top-title {
     padding-right: 0;
@@ -6342,8 +6352,12 @@ blockquote cite {
   bottom: 8px;
   width: 100%;
   height: 20px;
-  background: #ff6e85;
+  /* background: #ff6e85; */
   z-index: -1;
+}
+.tite{
+  color: white;
+  text-align: right;
 }
 .appie-about-top-title p {
   font-size: 20px;
@@ -6964,7 +6978,7 @@ blockquote cite {
 .appie-sponser-box .sponser-item {
   background: #fff;
   height: 100px;
-  width: 100px;
+  width: 100%;
   text-align: center;
   line-height: 100px;
   border-radius: 6px;
@@ -7377,7 +7391,8 @@ blockquote cite {
 .contact-form input[type="text"],
 .contact-form input[type="number"],
 .contact-form textarea,
-.contact-form input[type="email"] {
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
   width: 100%;
   height: 56px;
   font-size: 14px;

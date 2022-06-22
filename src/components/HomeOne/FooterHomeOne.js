@@ -131,18 +131,18 @@ function FooterHomeOne({ className }) {
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <i className="fal fa-envelope" /> support@appie.com
+                                            <i className="fal fa-envelope" /> {logo ? logo.map((x) => <span>{x.attributes.email}</span>) : 'hgfhgf'}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i className="fal fa-phone" /> +(642) 342 762 44
+                                            <i className="fal fa-phone" /> {logo ? logo.map((x) => <span>{x.attributes.phone}</span>) : 'hgfhgf'} <br/>
+                                            {logo ? logo.map((x) => <span>{x.attributes.phone1}</span>) : 'hgfhgf'}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i className="fal fa-map-marker-alt" /> 442 Belle Terre
-                                            St Floor 7, San Francisco, AV 4206
+                                            <i className="fal fa-map-marker-alt" /> {logo ? logo.map((x) => <span>{x.attributes.address}</span>) : 'hgfhgf'}
                                         </a>
                                     </li>
                                 </ul>
@@ -168,7 +168,7 @@ function FooterHomeOne({ className }) {
                                     </ul>
                                 </div>
                                 <div className="copyright-text">
-                                    <p>Copyright © 2021 Appie. All rights reserved.</p>
+                                    <p>Copyright © 2022 Appie. All rights reserved.</p>
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,7 @@ import Hometwo from './components/HomeTwo';
 import News from './components/News';
 import SingleNews from './components/News/SingleNews';
 import Service from './components/Service';
+import Carrer from './components/Carrer';
 
 function Routes() {
     const [loading, setLoading] = useState(true);
@@ -48,9 +49,10 @@ function Routes() {
                             <Route exact path="/home-eight" component={HomeEight} />
                             <Route exact path="/news" component={News} />
                             <Route exact path="/news/single-news" component={SingleNews} />
-                            <Route exact path="/service" component={Service} />
+                            <Route exact path="/portfolio" component={Service} />
                             <Route exact path="/about-us" component={AboutUs} />
                             <Route exact path="/contact" component={Contact} />
+                            <Route exact path="/career" component={Carrer} />
                             <Route exact path="/error" component={Error} />
                             <Route component={Error} />
                         </Switch>
