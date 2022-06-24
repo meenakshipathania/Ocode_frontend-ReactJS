@@ -3,23 +3,20 @@ import useToggle from '../../Hooks/useToggle';
 import BackToTop from '../BackToTop';
 import SignupHomeEight from '../HomeEight/SignupHomeEight';
 import FooterHomeOne from '../HomeOne/FooterHomeOne';
-// import SponserHomeTwo from '../HomeTwo/SponserHomeTwo';
 import Drawer from '../Mobile/Drawer';
-import HeaderCarrer from './HeaderCarrer';
-import HeroCarrer from './HeroCarrer';
-// import ServicesAbout from './ServicesAbout';
-import Carreropening from './Carreropening';
+import HeaderMarketing from './HeaderMarketing';
+import HeroMarketing from './HeroMarketing';
+import MarketingDetail from './MarketingDetail'
 
-function Carrer() {
+
+function MarketingExecutive() {
     const [drawer, drawerAction] = useToggle(false);
     return (
         <>
             <Drawer drawer={drawer} action={drawerAction.toggle} />
-            <HeaderCarrer drawer={drawer} action={drawerAction.toggle} />
-            <HeroCarrer />
-            {/* <ServicesAbout /> */}
-            <Carreropening />
-            {/* <SponserHomeTwo /> */}
+            <HeaderMarketing drawer={drawer} action={drawerAction.toggle} />
+            <HeroMarketing />
+            <MarketingDetail />
             <SignupHomeEight />
             <FooterHomeOne className="appie-footer-about-area" />
             <BackToTop />
@@ -27,4 +24,4 @@ function Carrer() {
     );
 }
 
-export default Carrer;
+export default MarketingExecutive;

@@ -1673,19 +1673,31 @@ p {
 .mainport{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
-.port1, .port2, .port3{
-  width: 30%;
+.port1{
+  width: 100%;
   line-height: 0;
   position: relative;
   text-align: center;
   background-color: aliceblue;
+}
+img.loimg1 {
+  width: 30%;
 }
 .subport1{
   padding: 42px 0 21px;
 }
 .span1{
   display: inline-block;
+}
+h6.detail {
+  font-weight: 400;
+  line-height: 35px;
+}
+h3.headdetail {
+  font-weight: 700;
+  line-height: inherit;
 }
 .subimg{
   max-width: 100%;

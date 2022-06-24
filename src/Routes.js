@@ -17,6 +17,15 @@ import News from './components/News';
 import SingleNews from './components/News/SingleNews';
 import Service from './components/Service';
 import Carrer from './components/Carrer';
+import WebDesinger from './components/WebDesigner';
+import GraphicDesigner from './components/GraphicDesigner';
+import PhpDeveloper from './components/PhpDeveloper';
+import FullStack from './components/FullStackDeveloper';
+import IonicDeveloper from './components/IonicDeveloper';
+import MarketingExecutive from './components/MarketingEcecutive';
+import Bidder from './components/Bidder';
+import MagentoExpert from './components/MagentoExpert';
+import Recruiter from './components/Recruiter';
 
 function Routes() {
     const [loading, setLoading] = useState(true);
@@ -53,6 +62,15 @@ function Routes() {
                             <Route exact path="/about-us" component={AboutUs} />
                             <Route exact path="/contact" component={Contact} />
                             <Route exact path="/career" component={Carrer} />
+                            <Route exact path="/web-designer" component={WebDesinger} />
+                            <Route exact path="/graphic-designer" component={GraphicDesigner} />
+                            <Route exact path="/php-developer" component={PhpDeveloper} />
+                            <Route exact path="/fullstack-developer" component={FullStack} />
+                            <Route exact path="/ionic-developer" component={IonicDeveloper} />
+                            <Route exact path="/marketing-executive" component={MarketingExecutive} />
+                            <Route exact path="/bidder" component={Bidder} />
+                            <Route exact path="/magento-expert" component={MagentoExpert} />
+                            <Route exact path="/recruiter" component={Recruiter} />
                             <Route exact path="/error" component={Error} />
                             <Route component={Error} />
                         </Switch>
