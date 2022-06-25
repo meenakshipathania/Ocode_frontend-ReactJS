@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from 'react-router-dom';
 
-// import thumb from '../../assets/images/service-details-thumb.jpg';
 
 function DetailsService() {
   const [text2, Settext2] = useState([]);
