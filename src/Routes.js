@@ -22,10 +22,14 @@ import GraphicDesigner from './components/GraphicDesigner';
 import PhpDeveloper from './components/PhpDeveloper';
 import FullStack from './components/FullStackDeveloper';
 import IonicDeveloper from './components/IonicDeveloper';
-import MarketingExecutive from './components/MarketingEcecutive';
+import MarketingExecutive from './components/MarketingExecutive';
 import Bidder from './components/Bidder';
 import MagentoExpert from './components/MagentoExpert';
 import Recruiter from './components/Recruiter';
+import Apply from './components/ApplyNow';
+import LuxySource from './components/LuxySource';
+import CertifiedCell from './components/CertifiedCell';
+import Zap11 from './components/Zap11';
 
 function Routes() {
     const [loading, setLoading] = useState(true);
@@ -71,6 +75,10 @@ function Routes() {
                             <Route exact path="/bidder" component={Bidder} />
                             <Route exact path="/magento-expert" component={MagentoExpert} />
                             <Route exact path="/recruiter" component={Recruiter} />
+                            <Route exact path="/apply-now" component={Apply} />
+                            <Route exact path="/luxysource" component={LuxySource} />
+                            <Route exact path="/certifiedcell" component={CertifiedCell} />
+                            <Route exact path="/zap" component={Zap11} />
                             <Route exact path="/error" component={Error} />
                             <Route component={Error} />
                         </Switch>

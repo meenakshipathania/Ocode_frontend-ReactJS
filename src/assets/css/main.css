@@ -883,7 +883,7 @@ p {
   background: linear-gradient(90deg, #6b1fcd 0%, #374ede 100%);
 }
 .appie-header-area.appie-header-page-area.appie-sticky.sticky {
-  background: #0a44b9;
+  background: midnightblue;
 }
 .appie-header-area.appie-header-7-area.appie-sticky.sticky {
   background: #290645;
@@ -6319,6 +6319,22 @@ blockquote cite {
   padding-bottom: 175px;
 }
 
+.appie-about-top-title-luxysource {
+  padding-top: 227px;
+  background-image: url(../images/Slide1-6.png);
+  padding-bottom: 175px;
+}
+.appie-about-top-title-certified {
+  padding-top: 227px;
+  background-image: url(../images/certifiedcell-buyphone.png);
+  padding-bottom: 175px;
+}
+.appie-about-top-title-zap {
+  padding-top: 227px;
+  background-image: url(../images/ZAPmockup_v1-2.png);
+  padding-bottom: 175px;
+}
+
 /* .appie-about-top-title {
   padding-right: 65px;
 } */
@@ -6370,6 +6386,31 @@ blockquote cite {
 .tite{
   color: white;
   text-align: right;
+}
+.tite1{
+  color: white;
+  text-align: center;
+}
+.para{
+  text-align: center;
+  line-height: 35px;
+  padding: 2px 40px
+}
+.main{
+  background-color: #dedede2b;
+  margin-bottom: 20px;
+}
+.uide {
+  background-color: aliceblue;
+  padding: 20px 18px 70px;
+}
+h4.lux {
+  text-align: center;
+  font-size: 40px;
+  padding-top: 20px;
+}
+.uide h5, .uide p {
+  line-height: 35px;
 }
 .appie-about-top-title p {
   font-size: 20px;
@@ -7390,6 +7431,15 @@ blockquote cite {
   line-height: 30px;
   margin-bottom: 8px;
 }
+h5.white{
+  font-size: 17px;
+  line-height: 1.75em;
+  font-weight: 300;
+  color: #646e7a;
+  font-family: Poppins,sans-serif;
+  font-style: normal;
+  text-transform: none;
+}
 
 .contact-form p {
   font-size: 16px;
@@ -7404,7 +7454,8 @@ blockquote cite {
 .contact-form input[type="number"],
 .contact-form textarea,
 .contact-form input[type="email"],
-.contact-form input[type="tel"] {
+.contact-form input[type="tel"],
+.contact-form select {
   width: 100%;
   height: 56px;
   font-size: 14px;

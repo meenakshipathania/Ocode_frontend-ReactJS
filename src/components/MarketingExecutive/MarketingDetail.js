@@ -13,7 +13,6 @@ function DetailsService() {
         .then((res) => {
           Settext2(res.data.data);
           console.log(res.data.data)
-
         })
         .catch((error) => {
           console.log(error);
@@ -60,7 +59,7 @@ function DetailsService() {
                             <h6 className="detail">{x.education}</h6>
                   )) : 'hgfhgf'}
                     <br/>
-                  <a href="#" target="self"><button className='main-btn'>Apply Now</button></a>
+                  <a href="/apply-now" target="self"><button className='main-btn'>Apply Now</button></a>
                         
                         </div>
                     </div>

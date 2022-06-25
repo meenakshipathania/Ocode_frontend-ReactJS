@@ -6,7 +6,7 @@ function HeroAbout() {
     useEffect(() => {
         const request = axios.CancelToken.source();
         axios
-            .get('http://localhost:1337/api/logos?populate=*')
+            .get('http://localhost:1337/api/portfolios')
             .then((res) => {
                 Setlogo(res.data.data);
             })
@@ -17,12 +17,12 @@ function HeroAbout() {
     }, []);
     return (
         <>
-            <div className="appie-about-top-title-area1">
+            <div className="appie-about-top-title-luxysource">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="appie-about-top-title">
-                                <h2 className="title tite">{logo ? logo.map((x) => <span>{x.attributes.t5}</span>) : "hsdfgh" }</h2>
+                                <h2 className="title tite1">{logo ? logo.map((x) => <span>{x.attributes.sub1}</span>) : "hsdfgh" }</h2>
                                 {/* <p>We offer you a panoply of cutting-edge options.</p> */}
                             </div>
                         </div>

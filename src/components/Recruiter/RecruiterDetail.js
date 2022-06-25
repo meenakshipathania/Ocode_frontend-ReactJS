@@ -60,7 +60,7 @@ function DetailsService() {
                             <h6 className="detail">{x.education}</h6>
                   )) : 'hgfhgf'}
                   <br/>
-                  <a href="#"><button className='main-btn'>Apply Now</button></a>
+                  <a href="/apply-now"><button className='main-btn'>Apply Now</button></a>
                         
                         </div>
                     </div>

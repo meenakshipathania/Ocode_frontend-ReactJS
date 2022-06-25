@@ -1,21 +1,23 @@
-import React from 'react';
+import React from "react";
 
 function HeroAbout() {
-    return (
-        <>
-            <div className="appie-about-top-title-area">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-7">
-                            <div className="appie-about-top-title">
-                                <h2 className="title">The leading people Management platform</h2>
-                                <p>We offer you a panoply of cutting-edge options.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <>
+      <div className="appie-about-top-title-area">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-7">
+              <div className="appie-about-top-title">
+                <h2 className="title">
+                  The leading people Management platform
+                </h2>
+                <p>We offer you a panoply of cutting-edge options.</p>
+              </div>
             </div>
-            {/* <section className="appie-about-page-area">
+          </div>
+        </div>
+      </div>
+      {/* <section className="appie-about-page-area">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
@@ -39,8 +41,8 @@ function HeroAbout() {
                     </div>
                 </div>
             </section> */}
-        </>
-    );
+    </>
+  );
 }
 
 export default HeroAbout;

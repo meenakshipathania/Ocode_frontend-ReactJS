@@ -22,7 +22,7 @@ function HeroAbout() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="appie-about-top-title">
-                                <h2 className="title tite">{logo ? logo.map((x) => <span>{x.attributes.t5}</span>) : "hsdfgh" }</h2>
+                                <h2 className="title tite">{logo ? logo.map((x) => <span>{x.attributes.t6}</span>) : "hsdfgh" }</h2>
                                 {/* <p>We offer you a panoply of cutting-edge options.</p> */}
                             </div>
                         </div>
