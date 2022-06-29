@@ -475,7 +475,7 @@ p {
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 20px;
-  color: #0e1133;
+  color: #fff;
 }
 
 .preloader {
@@ -1673,10 +1673,10 @@ p {
 .mainport{
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 .port1{
-  width: 100%;
+  width: 32%;
   line-height: 0;
   position: relative;
   text-align: center;
@@ -1837,6 +1837,15 @@ h3.headdetail {
 .appie-hero-content ul li a:hover {
   background: transparent;
   color: #fff;
+}
+@media only screen and (max-width: 767px) {
+  .mainport{
+    display: block;
+  }
+  .port1{
+    margin-bottom: 20px;
+    width: 100%;
+  }
 }
 .appie-hero-content ul li a.item-2 {
   background: transparent;
@@ -2236,16 +2245,16 @@ h3.headdetail {
 }
 
 .appie-page-title-area {
-  height: 450px;
+  height: 460px;
   background-image: url(../images/contact.png);
   background-size: cover;
-  background-position: center;
+  background-position: right;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
 }
 .appie-page-title-area.appie-page-service-title-area {
-  height: 650px;
+  /* height: 650px; */
   background-image: url(../images/page-title-bg.jpg);
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2315,14 +2324,15 @@ h3.headdetail {
 .appie-page-title-item .title {
   font-size: 44px;
   font-weight: 700;
-  color: #fff;
+  color: currentcolor;
+  text-align: center;
 }
 h3.tit {
-  text-align: right;
+  text-align: center;
 }
 @media (max-width: 767px) {
   .appie-page-title-item .title {
-    font-size: 26px;
+    font-size: 35px;
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -4869,7 +4879,7 @@ h3.tit {
 }
 
 .post-thumb img {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -6311,12 +6321,23 @@ blockquote cite {
 .appie-about-top-title-area {
   padding-top: 227px;
   background-image: url(../images/portfolio.jpg);
-  padding-bottom: 50px;
+  padding-bottom: 170px;
+  background-position: left;
+  background-size: cover;
 }
 .appie-about-top-title-area1 {
   padding-top: 227px;
   background-image: url(../images/career-2.jpg);
   padding-bottom: 175px;
+  background-size: cover;
+  background-position: right;
+}
+.port11 {
+  width: 100%;
+  line-height: 0;
+  position: relative;
+  text-align: center;
+  background-color: aliceblue;
 }
 
 .appie-about-top-title-luxysource {
@@ -6352,6 +6373,8 @@ blockquote cite {
   font-size: 60px;
   position: relative;
   z-index: 10;
+  color: currentColor;
+  text-align: center;
 }
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .appie-about-top-title .title {

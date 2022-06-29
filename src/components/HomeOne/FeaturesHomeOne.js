@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -67,7 +68,7 @@ function FeaturesHomeOne({ className }) {
                                     aria-controls="v-pills-home"
                                     aria-selected="true"
                                 >
-                                    <i className="fas fa-cog" /> Settings
+                                    <i className="fas fa-cog" /> Progressive Web Apps
                                 </a>
                                 <a
                                     onClick={(e) => handleClick(e, 'report')}
@@ -79,7 +80,7 @@ function FeaturesHomeOne({ className }) {
                                     aria-controls="v-pills-profile"
                                     aria-selected="false"
                                 >
-                                    <i className="fas fa-exclamation-triangle" /> Report
+                                    <i className="fas fa-exclamation-triangle" /> Mobile and iOT Apps
                                 </a>
                                 <a
                                     onClick={(e) => handleClick(e, 'notice')}
@@ -91,7 +92,7 @@ function FeaturesHomeOne({ className }) {
                                     aria-controls="v-pills-messages"
                                     aria-selected="false"
                                 >
-                                    <i className="fas fa-bell" /> Saeety Notices
+                                    <i className="fas fa-bell" /> Software Integrations
                                 </a>
                                 <a
                                     onClick={(e) => handleClick(e, 'app')}
@@ -103,7 +104,7 @@ function FeaturesHomeOne({ className }) {
                                     aria-controls="v-pills-settings"
                                     aria-selected="false"
                                 >
-                                    <i className="fas fa-lock" /> App Lock
+                                    <i className="fas fa-lock" /> Ecommerce Solutions
                                 </a>
                             </div>
                         </div>

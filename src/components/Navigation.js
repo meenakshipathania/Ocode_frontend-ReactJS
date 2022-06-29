@@ -21,7 +21,7 @@ function Navigation() {
                 <li>
                     <Link to="/">{text ? text.map((x) => <span>{x.attributes.nav1}</span>) : 'hgfhgf'}</Link>
                         {/* Home <i className="fal fa-angle-down" /> */}
-                    <ul className="sub-menu">
+                    {/* <ul className="sub-menu">
                         <li>
                             <Link to="/">Home 1</Link>
                         </li>
@@ -46,7 +46,7 @@ function Navigation() {
                         <li>
                             <Link to="/home-eight">Home 8</Link>
                         </li>
-                    </ul>
+                    </ul> */}
                 </li>
                 <li>
                     <Link to="/portfolio">{text ? text.map((x) => <span>{x.attributes.nav2}</span>) : 'hgfhgf'}</Link>

@@ -3,30 +3,30 @@ import useToggle from '../../Hooks/useToggle';
 import BackToTop from '../BackToTop';
 import FooterHomeOne from '../HomeOne/FooterHomeOne';
 import Drawer from '../Mobile/Drawer';
-import Blog from './Blog';
+import Blog1 from './Blog1';
 import BlogSideBar from './BlogSideBar';
-import HeaderNews from './HeaderNews';
-import HeroNews from './HeroNews';
+import HeaderBlog from './HeaderBlog';
+import HeroBlog from './HeroBlog';
 
-function SingleNews() {
+function SingleBlog1() {
     const [drawer, drawerAction] = useToggle(false);
     return (
         <>
             <Drawer drawer={drawer} action={drawerAction.toggle} />
-            <HeaderNews action={drawerAction.toggle} />
-            <HeroNews
-                title="Blog"
-                breadcrumb={[
-                    { link: '/', title: 'home' },
-                    { link: '/news', title: 'Blogs' },
-                    { link: '/news/single-news', title: 'Blog' },
-                ]}
+            <HeaderBlog action={drawerAction.toggle} />
+            <HeroBlog
+                title="Blog Detail"
+                // breadcrumb={[
+                //     { link: '/', title: 'home' },
+                //     { link: '/blog', title: 'Blogs' },
+                //     { link: '/education/blog1', title: 'Blog' },
+                // ]}
             />
             <section className="blogpage-section">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-7">
-                            <Blog />
+                            <Blog1 />
                         </div>
                         <div className="col-lg-4 col-md-5">
                             <BlogSideBar />
@@ -40,4 +40,4 @@ function SingleNews() {
     );
 }
 
-export default SingleNews;
+export default SingleBlog1;

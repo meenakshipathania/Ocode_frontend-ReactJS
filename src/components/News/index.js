@@ -5,21 +5,21 @@ import FooterHomeOne from '../HomeOne/FooterHomeOne';
 import Drawer from '../Mobile/Drawer';
 import Blogs from './Blogs';
 import BlogSideBar from './BlogSideBar';
-import HeaderNews from './HeaderNews';
-import HeroNews from './HeroNews';
+import HeaderBlog from './HeaderBlog';
+import HeroBlog from './HeroBlog';
 
-function News() {
+function Blogsa() {
     const [drawer, drawerAction] = useToggle(false);
     return (
         <>
             <Drawer drawer={drawer} action={drawerAction.toggle} />
-            <HeaderNews action={drawerAction.toggle} />
-            <HeroNews
+            <HeaderBlog action={drawerAction.toggle} />
+            <HeroBlog
                 title="Blogs"
-                breadcrumb={[
-                    { link: '/', title: 'home' },
-                    { link: '/news', title: 'Blogs' },
-                ]}
+                // breadcrumb={[
+                //     { link: '/', title: 'Home' },
+                //     { link: '/blog', title: 'Blogs' },
+                // ]}
             />
             <section className="blogpage-section">
                 <div className="container">
@@ -39,4 +39,4 @@ function News() {
     );
 }
 
-export default News;
+export default Blogsa;

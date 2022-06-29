@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function FaqHomeOne({ className }) {
     const [showQues, setQues] = useState(1);
     const openQuestion = (value) => {
         setQues(value);
     };
+    const [home, Sethome] = useState([]);
+    useEffect(() => {
+      const request = axios.CancelToken.source();
+      axios
+        .get("http://localhost:1337/api/homes?populate=*")
+        .then((res) => {
+          Sethome(res.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      return () => request.cancel();
+    }, []);
     return (
         <>
             <section className={`appie-faq-area pb-95 ${className || ''}`}>
@@ -13,7 +27,7 @@ function FaqHomeOne({ className }) {
                         <div className="col-lg-12">
                             <div className="appie-section-title text-center">
                                 <h3 className="appie-title">Frequently asked questions</h3>
-                                <p>Different layouts and styles for team sections.</p>
+                                {/* <p>Different layouts and styles for team sections.</p> */}
                             </div>
                         </div>
                     </div>
@@ -34,7 +48,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>{home ? home.map((x) => <span>{x.attributes.q1}</span>) : 'hgfhgf'}</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -44,9 +58,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                    {home ? home.map((x) => <span>{x.attributes.a1}</span>) : 'hgfhgf'}
                                                     </p>
                                                 </div>
                                             </div>
@@ -58,7 +70,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>{home ? home.map((x) => <span>{x.attributes.q2}</span>) : 'hgfhgf'}</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -68,9 +80,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                    {home ? home.map((x) => <span>{x.attributes.a2}</span>) : 'hgfhgf'}
                                                     </p>
                                                 </div>
                                             </div>
@@ -95,7 +105,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>{home ? home.map((x) => <span>{x.attributes.q3}</span>) : 'hgfhgf'}</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -105,9 +115,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                    {home ? home.map((x) => <span>{x.attributes.a3}</span>) : 'hgfhgf'}
                                                     </p>
                                                 </div>
                                             </div>
@@ -119,7 +127,7 @@ function FaqHomeOne({ className }) {
                                     >
                                         <div className="accrodion-inner">
                                             <div className="accrodion-title">
-                                                <h4>Where do I usually find FAQs in a page?</h4>
+                                                <h4>{home ? home.map((x) => <span>{x.attributes.q4}</span>) : 'hgfhgf'}</h4>
                                             </div>
                                             <div
                                                 className="accrodion-content"
@@ -129,9 +137,7 @@ function FaqHomeOne({ className }) {
                                             >
                                                 <div className="inner">
                                                     <p>
-                                                        Naff Oxford vagabond in my flat chinwag
-                                                        blatant grub tomfoolery that I bits and bobs
-                                                        up the duff cras boot bevvy no biggie.
+                                                    {home ? home.map((x) => <span>{x.attributes.a4}</span>) : 'hgfhgf'}
                                                     </p>
                                                 </div>
                                             </div>

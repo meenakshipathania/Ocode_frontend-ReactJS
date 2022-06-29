@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // import teamOne from '../../assets/images/team-1.jpg';
 // import teamTwo from '../../assets/images/team-2.jpg';
 // import teamThree from '../../assets/images/team-3.jpg';
@@ -85,10 +86,10 @@ function TeamHomeOne() {
                         </div>
                         <div className="col-lg-12">
                             <div className="team-btn text-center mt-50">
-                                <a className="main-btn" href="#">
-                                    {' '}
+                            <Link to={{pathname: '/about-us', hash: '#team'}}>
+                                    {/* {' '} */}
                                     View all Members <i className="fal fa-arrow-right" />
-                                </a>
+                            </Link>
                             </div>
                         
                                      

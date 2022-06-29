@@ -4,7 +4,7 @@ import BackToTop from '../BackToTop';
 import FooterHomeOne from '../HomeOne/FooterHomeOne';
 import Drawer from '../Mobile/Drawer';
 import HeaderAbout from '../AboutUs/HeaderAbout';
-import HeroNews from '../News/HeroNews';
+import HeroNews from '../News/HeroBlog';
 import Forms from './Forms';
 
 function Contact() {

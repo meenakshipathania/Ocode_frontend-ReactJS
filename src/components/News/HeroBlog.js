@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 function HeroNews({ title, breadcrumb }) {
     return (
         <>
             <div className="appie-page-title-area">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="appie-page-title-item">
-                                <h3 className="title tit">{title}</h3>
-                                <nav aria-label="breadcrumb">
+                                <h3 className="title">{title}</h3>
+                                {/* <nav aria-label="breadcrumb">
                                     <ol className="breadcrumb">
                                         {breadcrumb.map((value) => (
                                             <li key={Math.random()} className="breadcrumb-item">
@@ -18,7 +18,7 @@ function HeroNews({ title, breadcrumb }) {
                                             </li>
                                         ))}
                                     </ol>
-                                </nav>
+                                </nav> */}
                             </div>
                         </div>
                     </div>

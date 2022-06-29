@@ -44,7 +44,7 @@ function TeamAbout() {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="appie-section-title text-center">
+              <div className="appie-section-title text-center" id="team">
                 <h3 className="appie-title">
                   {home1
                     ? home1.map((x) => <span>{x.attributes.heading1}</span>)

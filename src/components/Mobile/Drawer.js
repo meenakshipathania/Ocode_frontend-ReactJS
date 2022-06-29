@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 
@@ -13,6 +15,18 @@ function Drawer({ drawer, action }) {
             setItem(value);
         }
     };
+    const [text, Settext] = useState([]);
+    useEffect(() => {
+       const request = axios.CancelToken.source();
+          axios.get('http://localhost:1337/api/logos')
+             .then((res) => {
+                Settext(res.data.data);
+             })
+             .catch((error) => {
+                console.log(error);
+             });
+       return () => request.cancel();
+    }, []);
     return (
         <>
             <div
@@ -39,11 +53,11 @@ function Drawer({ drawer, action }) {
                                             id="home"
                                             className="menu-item-has-children active"
                                         >
-                                            <span className="menu-expand">
+                                            {/* <span className="menu-expand">
                                                 <i className="fa fa-angle-down"></i>
-                                            </span>
-                                            <a href="#">Home</a>
-                                            <ul
+                                            </span> */}
+                                            <Link to="/">{text ? text.map((x) => <span>{x.attributes.nav1}</span>) : 'hgfhgf'}</Link>
+                                            {/* <ul
                                                 className="sub-menu"
                                                 style={{
                                                     height: item === 'home' ? itemSize : '0px',
@@ -73,25 +87,25 @@ function Drawer({ drawer, action }) {
                                                 <li>
                                                     <Link to="/home-eight">Home 8</Link>
                                                 </li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
                                         <li
                                             onClick={(e) => handler(e, 'service')}
                                             id="service"
                                             className="menu-item-has-children active"
                                         >
-                                            <Link to="/service">Service</Link>
+                                            <Link to="/portfolio">{text ? text.map((x) => <span>{x.attributes.nav2}</span>) : 'hgfhgf'}</Link>
                                         </li>
                                         <li
                                             onClick={(e) => handler(e, 'pages')}
                                             id="pages"
                                             className="menu-item-has-children active"
                                         >
-                                            <span className="menu-expand">
+                                            {/* <span className="menu-expand">
                                                 <i className="fa fa-angle-down"></i>
-                                            </span>
-                                            <a href="#">Pages</a>
-                                            <ul
+                                            </span> */}
+                                            <Link to="/career">{text ? text.map((x) => <span>{x.attributes.nav3}</span>) : 'hgfhgf'}</Link>
+                                            {/* <ul
                                                 className="sub-menu"
                                                 style={{
                                                     height: item === 'pages' ? itemSize : '0px',
@@ -104,18 +118,18 @@ function Drawer({ drawer, action }) {
                                                 <li>
                                                     <Link to="/error">Error</Link>
                                                 </li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
                                         <li
                                             onClick={(e) => handler(e, 'news')}
                                             id="news"
                                             className="menu-item-has-children active"
                                         >
-                                            <span className="menu-expand">
+                                            {/* <span className="menu-expand">
                                                 <i className="fa fa-angle-down"></i>
-                                            </span>
-                                            <a href="#">News</a>
-                                            <ul
+                                            </span> */}
+                                            <Link to="/about-us">{text ? text.map((x) => <span>{x.attributes.nav4}</span>) : 'hgfhgf'}</Link>
+                                            {/* <ul
                                                 className="sub-menu"
                                                 style={{
                                                     height: item === 'news' ? itemSize : '0px',
@@ -127,14 +141,14 @@ function Drawer({ drawer, action }) {
                                                 <li>
                                                     <Link to="/news/single-news">Single News</Link>
                                                 </li>
-                                            </ul>
+                                            </ul> */}
                                         </li>
                                         <li
                                             onClick={(e) => handler(e, 'contact')}
                                             id="contact"
                                             className="menu-item-has-children active"
                                         >
-                                            <Link to="/contact">Contact</Link>
+                                               <Link to="/contact">{text ? text.map((x) => <span>{x.attributes.nav5}</span>) : 'hgfhgf'}</Link>
                                         </li>
                                     </ul>
                                 </div>

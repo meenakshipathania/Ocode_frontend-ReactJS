@@ -89,10 +89,10 @@ function FooterHomeOne({ className }) {
                                         <Link to="/about-us">About Us</Link>
                                     </li>
                                     <li>
-                                        <Link to="/Service">Service</Link>
+                                        <Link to="/portfolio">Portfolio</Link>
                                     </li>
                                     <li>
-                                        <a href="#">Case Studies</a>
+                                        <a href="/career">Career</a>
                                     </li>
                                     <li>
                                         <Link to="/news">Blog</Link>

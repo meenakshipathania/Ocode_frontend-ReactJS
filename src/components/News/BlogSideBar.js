@@ -1,10 +1,41 @@
-import React from 'react';
-import BlogImg1 from '../../assets/images/blog/p1.jpg';
-import BlogImg2 from '../../assets/images/blog/p2.jpg';
-import BlogImg3 from '../../assets/images/blog/p3.jpg';
-import BlogImg4 from '../../assets/images/blog/p4.jpg';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function BlogSideBar() {
+    const [data, Setdata] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/blogposts?populate=*')
+            .then((res) => {
+                Setdata(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
+
+    function imageurl(atttribute) {
+        const baseurl = 'http://localhost:1337';
+        const dataurl = atttribute.image.data[0].attributes.url;
+        return baseurl + dataurl;
+    }
+
+    const [data1, Setdata1] = useState([]);
+    useEffect(() => {
+        const request = axios.CancelToken.source();
+        axios
+            .get('http://localhost:1337/api/categories?populate=*')
+            .then((res) => {
+                Setdata1(res.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        return () => request.cancel();
+    }, []);
     return (
         <div className="blog-sidebar">
             <aside className="widget widget-search">
@@ -18,48 +49,59 @@ function BlogSideBar() {
             <aside className="widget widget-categories">
                 <h3 className="widget-title">Categories</h3>
                 <ul>
-                    <li>
-                        <a href="#">Web Design</a>
-                        <span>(24)</span>
-                    </li>
-                    <li>
-                        <a href="#">Marketing</a>
-                        <span>(15)</span>
-                    </li>
-                    <li>
-                        <a href="#">Frontend</a>
-                        <span>(8)</span>
-                    </li>
-                    <li>
-                        <a href="#">IT & Software</a>
-                        <span>(13)</span>
-                    </li>
-                    <li>
-                        <a href="#">Photography</a>
-                        <span>(4)</span>
-                    </li>
-                    <li>
-                        <a href="#">Technology</a>
-                        <span>(16)</span>
-                    </li>
-                    <li>
-                        <a href="#">General</a>
-                        <span>(12)</span>
-                    </li>
+                    {data1
+                        ? data1.map((x) => (
+                              <li>
+                                  <a href="#">{x.attributes.name}</a>
+                                  {/* <span>(24)</span> */}
+                              </li>
+                              // <li>
+                              //     <a href="#">Marketing</a>
+                              //     <span>(15)</span>
+                              // </li>
+                              // <li>
+                              //     <a href="#">Frontend</a>
+                              //     <span>(8)</span>
+                              // </li>
+                              // <li>
+                              //     <a href="#">IT & Software</a>
+                              //     <span>(13)</span>
+                              // </li>
+                              // <li>
+                              //     <a href="#">Photography</a>
+                              //     <span>(4)</span>
+                              // </li>
+                              // <li>
+                              //     <a href="#">Technology</a>
+                              //     <span>(16)</span>
+                              // </li>
+                              // <li>
+                              //     <a href="#">General</a>
+                              //     <span>(12)</span>
+                              // </li>
+                          ))
+                        : 'hgfhgf'}
                 </ul>
             </aside>
             <aside className="widget widget-trend-post">
                 <h3 className="widget-title">Popular Posts</h3>
-                <div className="popular-post">
-                    <a href="single-post.html">
-                        <img src={BlogImg1} alt="" />
-                    </a>
-                    <h5>
-                        <a href="single-post.html">Using creative problem Solving</a>
-                    </h5>
-                    <span>March 10, 2020</span>
-                </div>
-                <div className="popular-post">
+                {data
+                    ? data.slice(6, 11).map((x) => (
+                          <div className="popular-post">
+                              <a href="single-post.html">
+                                  <img
+                                      src={x.attributes ? imageurl(x.attributes) : 'hgghtyu'}
+                                      alt=""
+                                  />
+                              </a>
+                              <h5>
+                                  <a href="single-post.html">{x.attributes.tag}</a>
+                              </h5>
+                              <span>March 10, 2020</span>
+                          </div>
+                      ))
+                    : 'hgfhgf'}
+                {/* <div className="popular-post">
                     <a href="single-post.html">
                         <img src={BlogImg2} alt="" />
                     </a>
@@ -85,9 +127,9 @@ function BlogSideBar() {
                         <a href="single-post.html">Brush strokes energize Trees in paintings</a>
                     </h5>
                     <span>July 4, 2020</span>
-                </div>
+                </div> */}
             </aside>
-            <aside className="widget">
+            {/* <aside className="widget">
                 <h3 className="widget-title">Popular Tags</h3>
                 <div className="tags">
                     <a href="#">Bisy LMS</a>
@@ -101,7 +143,7 @@ function BlogSideBar() {
                     <a href="#">Politico</a>
                     <a href="#">Live Cases</a>
                 </div>
-            </aside>
+            </aside> */}
         </div>
     );
 }

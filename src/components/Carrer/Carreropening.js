@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-// import thumb from '../../assets/images/service-details-thumb.jpg';
 
 function DetailsService() {
     const [logo, Setlogo] = useState([]);
@@ -55,7 +54,7 @@ function DetailsService() {
                                         <div className='col-md-4'>
                                         <Link to={'/'+ x.attributes.slug}>
                                         <div className='mainport'>
-                                        <div className='port1'>
+                                        <div className='port11'>
                                             <div className='subport1'>
                                                 <span className='span1'>
                                                 {/* <i class="fa fa-paint-brush fa-5x" aria-hidden="true"></i> */}                                       

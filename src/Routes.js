@@ -14,7 +14,10 @@ import HomeSix from './components/HomeSix';
 import HomeThree from './components/HomeThree';
 import Hometwo from './components/HomeTwo';
 import News from './components/News';
-import SingleNews from './components/News/SingleNews';
+import SingleBlog1 from './components/News/SingleBlog1';
+import SingleBlog2 from './components/News/SingleBlog2';
+import SingleBlog3 from './components/News/SingleBlog3';
+import SingleBlog4 from './components/News/SingleBlog4';
 import Service from './components/Service';
 import Carrer from './components/Carrer';
 import WebDesinger from './components/WebDesigner';
@@ -61,7 +64,10 @@ function Routes() {
                             <Route exact path="/home-seven" component={HomeSeven} />
                             <Route exact path="/home-eight" component={HomeEight} />
                             <Route exact path="/news" component={News} />
-                            <Route exact path="/news/single-news" component={SingleNews} />
+                            <Route exact path="/news/blog1" component={SingleBlog1} />
+                            <Route exact path="/news/blog2" component={SingleBlog2} />
+                            <Route exact path="/news/blog3" component={SingleBlog3} />
+                            <Route exact path="/news/blog4" component={SingleBlog4} />
                             <Route exact path="/portfolio" component={Service} />
                             <Route exact path="/about-us" component={AboutUs} />
                             <Route exact path="/contact" component={Contact} />

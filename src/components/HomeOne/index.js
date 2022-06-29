@@ -8,7 +8,7 @@ import FeaturesHomeOne from './FeaturesHomeOne';
 import FooterHomeOne from './FooterHomeOne';
 import HeroHomeOne from './HeroHomeOne';
 import HomeOneHeader from './HomeOneHeader';
-import PricingHomeOne from './PricingHomeOne';
+// import PricingHomeOne from './PricingHomeOne';
 import ProjectHomeOne from './ProjectHomeOne';
 import ServicesHomeOne from './ServicesHomeOne';
 import TeamHomeOne from './TeamHomeOne';
@@ -28,7 +28,7 @@ function HomeOne() {
             <TrafficHomeOne />
             <TestimonialHomeOne />
             <TeamHomeOne />
-            <PricingHomeOne />
+            {/* <PricingHomeOne /> */}
             <FaqHomeOne />
             <BlogHomeOne />
             <ProjectHomeOne />
