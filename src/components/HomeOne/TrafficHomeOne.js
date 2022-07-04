@@ -72,7 +72,7 @@ function TrafficHomeOne() {
                             </div>
                             <div className="col-lg-12">
                                 <div className="traffic-btn mt-50">
-                                    <a className="main-btn" href="#">
+                                    <a className="main-btn" href="/about-us">
                                         Learn More <i className="fal fa-arrow-right" />
                                     </a>
                                 </div>

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 // import singlePost from '../../assets/images/single-post/1.jpg';
 // import author from '../../assets/images/single-post/author.png';
@@ -26,6 +26,37 @@ function Blog() {
         const dataurl = data.data[0].attributes.url;
         return baseurl + dataurl;
     }
+    const [firstname, setFirstName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
+
+    const form = useRef();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const contact = { firstname, email, phone, message };
+        setFirstName('');
+        setEmail('');
+        setPhone('');
+        setMessage('');
+
+        // important//////////////
+        // emailjs.sendForm('service_6o3palp', 'template_58uclcx', form.current, 'pYfziu1Gd30wQSISj')
+        //     .then((result) => {
+        //         console.log(result.text);
+        //     }, (error) => {
+        //         console.log(error.text);
+        //     });
+        // e.target.reset()
+
+        fetch('http://localhost:1337/api/contact-datas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ data: contact }),
+        }).then(() => {
+            console.log('new contact added');
+        });
+    };
     return (
         <>
             <div className="single-post-area">
@@ -175,27 +206,21 @@ function Blog() {
                 <h3>Post a Comment</h3>
                 <p>Your email address will not be published. Required fields are marked</p>
                 <div className="comment-form">
-                    <form className="row" action="#" method="post">
+                    <form ref={form} onSubmit={handleSubmit} action="#" method="post" className="row">
                         <div className="col-md-6">
-                            <input type="text" name="name" placeholder="Name" />
+                            <input type="text" name="firstname" placeholder="Name" value={firstname} onChange={(e) => setFirstName(e.target.value)} />
                         </div>
                         <div className="col-md-6">
-                            <input type="email" name="email" placeholder="Email" />
+                            <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="col-md-12">
-                            <input type="url" name="url" placeholder="Website" />
+                            <input type="tel" pattern="[0-9]{10}"
+                                            name="phone"
+                                            placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} />
                         </div>
-                        {/* <div className="col-md-12">
-                            <div className="save-comment">
-                                <input id="history-name" type="checkbox" />
-                                <label htmlFor="history-name">
-                                    Save my name, email, and website in this browser for the next
-                                    time I comment.
-                                </label>
-                            </div>
-                        </div> */}
                         <div className="col-md-12">
-                            <textarea placeholder="Coment"></textarea>
+                            <textarea  name="message"
+                                            placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                         </div>
                         <div className="col-md-12">
                             <button type="submit">Post Comment</button>

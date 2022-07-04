@@ -2325,7 +2325,7 @@ h3.headdetail {
   font-size: 44px;
   font-weight: 700;
   color: currentcolor;
-  text-align: center;
+  /* text-align: center; */
 }
 h3.tit {
   text-align: center;
@@ -5214,7 +5214,8 @@ blockquote cite {
 .comment-form input[type="number"],
 .comment-form input[type="url"],
 .comment-form textarea,
-.comment-form input[type="email"] {
+.comment-form input[type="email"],
+.comment-form input[type="tel"] {
   width: 100%;
   height: 56px;
   font-size: 14px;
@@ -6412,6 +6413,9 @@ blockquote cite {
 }
 .tite1{
   color: white;
+  text-align: center;
+}
+.tit{
   text-align: center;
 }
 .para{

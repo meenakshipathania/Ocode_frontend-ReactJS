@@ -64,7 +64,7 @@ function HeaderAbout({ action }) {
                                     <a className="login-btn" href="#">
                                         <i className="fal fa-user"></i> {logo ? logo.map((x) => <span>{x.attributes.login}</span>) : 'hgfhgf'}
                                     </a>
-                                    <a className="main-btn ml-30" href="#">
+                                    <a className="main-btn ml-30" href="/contact">
                                     {logo ? logo.map((x) => <span>{x.attributes.getstart}</span>) : 'hgfhgf'}
                                     </a>
                                     <div

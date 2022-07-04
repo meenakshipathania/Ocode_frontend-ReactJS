@@ -8,7 +8,7 @@ function HeroNews({ title, breadcrumb }) {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="appie-page-title-item">
+                            <div className="appie-page-title-item tit">
                                 <h3 className="title">{title}</h3>
                                 {/* <nav aria-label="breadcrumb">
                                     <ol className="breadcrumb">

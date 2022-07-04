@@ -206,7 +206,7 @@ function FeaturesHomeOne({ className }) {
                                             <p>
                                             {home ? home.map((x) => <span>{x.attributes.para3}</span>) : 'hgfhgf'}
                                             </p>
-                                            <a className="main-btn" href="#">
+                                            <a className="main-btn" href="/about-us">
                                                 Learn More
                                             </a>
                                         </div>
@@ -256,7 +256,7 @@ function FeaturesHomeOne({ className }) {
                                             <p>
                                             {home ? home.map((x) => <span>{x.attributes.para4}</span>) : 'hgfhgf'}
                                             </p>
-                                            <a className="main-btn" href="#">
+                                            <a className="main-btn" href="/about-us">
                                                 Learn More
                                             </a>
                                         </div>
@@ -309,7 +309,7 @@ function FeaturesHomeOne({ className }) {
                                             <p>
                                             {home ? home.map((x) => <span>{x.attributes.para5}</span>) : 'hgfhgf'}
                                             </p>
-                                            <a className="main-btn" href="#">
+                                            <a className="main-btn" href="/about-us">
                                                 Learn More
                                             </a>
                                         </div>

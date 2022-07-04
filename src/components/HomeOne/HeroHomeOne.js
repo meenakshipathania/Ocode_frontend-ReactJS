@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import heroThumbOne from '../../assets/images/hero-thumb-1.png';

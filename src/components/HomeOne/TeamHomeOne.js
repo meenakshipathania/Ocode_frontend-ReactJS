@@ -86,7 +86,7 @@ function TeamHomeOne() {
                         </div>
                         <div className="col-lg-12">
                             <div className="team-btn text-center mt-50">
-                            <Link to={{pathname: '/about-us', hash: '#team'}}>
+                            <Link to={{pathname: '/about-us', hash: '#team'}} className="main-btn">
                                     {/* {' '} */}
                                     View all Members <i className="fal fa-arrow-right" />
                             </Link>

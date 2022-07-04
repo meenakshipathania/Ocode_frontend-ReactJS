@@ -61,7 +61,7 @@ function HomeOneHeader({ action }) {
                                 <Link to="#"className="login-btn">
                                     <i className="fal fa-user" /> {logo ? logo.map((x) => <span>{x.attributes.login}</span>) : 'hgfhgf'}
                                 </Link>
-                                <Link to="#" className="main-btn ml-30">
+                                <Link to="/contact" className="main-btn ml-30">
                                 {logo ? logo.map((x) => <span>{x.attributes.getstart}</span>) : 'hgfhgf'}
                                 </Link>
                                 <div

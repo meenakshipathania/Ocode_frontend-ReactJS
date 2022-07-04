@@ -35,7 +35,7 @@ function Blogs() {
         <>
             <div className="row">
                 {data
-                    ? data.slice(2, 7).map((x) => (
+                    ? data.slice(2, 6).map((x) => (
                           <div className="col-lg-6">
                               <div className="post-item-1">
                                   <img

@@ -152,7 +152,7 @@ function FooterHomeOne({ className }) {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="footer-copyright d-flex align-items-center justify-content-between pt-35">
-                                <div className="apps-download-btn">
+                                {/* <div className="apps-download-btn">
                                     <ul>
                                         <li>
                                             <a href="#">
@@ -166,9 +166,9 @@ function FooterHomeOne({ className }) {
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
                                 <div className="copyright-text">
-                                    <p>Copyright © 2022 Appie. All rights reserved.</p>
+                                    <p>© Copyright 2021-2022 oCode technologies. A unit of BrowseWire Consulting Pvt. Ltd.. All Rights Reserved.</p>
                                 </div>
                             </div>
                         </div>
